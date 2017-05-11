@@ -1,3 +1,21 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+     <form>
+        <input type="text" #serverName class="form-control">
+      <span *ngIf="show" class="help-block">enter server name!</span>
+      <br>
+      <button class="btn btn-primary" (click)="onAddServer(serverName.value)">Add Server</button>
+      <button type="button" class="btn btn-success" (click)="onSave()">Save server</button>
+      <button type="button" class="btn btn-info" (click)="onGet()">Get servers</button>
+
+      
+      
+      <hr>
+      <ul class="list-group" *ngFor="let server of servers">
+        <li class="list-group-item">{{ server.name }} (ID: {{ server.id }}) capacity:{{server.capacity}}<button class="btn btn-danger pull-right" (click)="removeServer(server.name)">remove Server</button></li>
+      </ul>
+     </form>
+    </div>
+  </div>
+</div>
